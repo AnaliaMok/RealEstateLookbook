@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1 class="heading-one">{{ msg }}</h1>
-    <p>
+    <p class="body-text">
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius deserunt
       ipsa neque vitae rerum saepe nemo totam reiciendis modi similique, non
       praesentium commodi aspernatur doloremque illum nostrum labore cum itaque,
