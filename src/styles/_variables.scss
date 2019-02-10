@@ -1,0 +1,25 @@
+/**
+ * variables.scss
+ *
+ * Use to define all global style variables such as color, fonts and spacing.
+ */
+
+// Typography.
+$primary-font: 'Varela', sans-serif;
+$secondary-font: 'Oswald', sans-serif;
+
+$regular: normal;
+$medium: 500;
+$semibold: 600;
+
+// Colors.
+$black: #111111;
+$dark-grey: #333333;
+$slate: #556075;
+$orange: #ff9447;
+$off-white: #f2f2f2;
+$white: #ffffff;
+
+// Breakpoints.
+$tablet: 768px;
+$desktop: 1024px;
