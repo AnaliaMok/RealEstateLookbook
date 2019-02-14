@@ -1,5 +1,7 @@
 <template>
-  <section class="page"></section>
+  <div class="lookbook">
+    <h2>This is a lookbook</h2>
+  </div>
 </template>
 
 <script>
