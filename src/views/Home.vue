@@ -22,23 +22,23 @@
 
 <script>
 // @ is an alias to /src
-import { contentfulClientMixin } from '../mixins/contentfulClientMixin.js';
+import { contentfulClientMixin } from '@/mixins/contentfulClientMixin.js';
 
 export default {
   name: 'home',
   mixins: [contentfulClientMixin],
-  data: function() {
+  data() {
     return {
       lookbooks: []
     };
   },
-  created: function() {
+  created() {
     this.getLooksbooks();
   },
   methods: {
-    getLooksbooks() {
+    getLooksbooks: async function() {
       // Retrieving entries
-      this.getEntries('lookbook');
+      this.lookbooks = await this.getEntries('lookbook');
     }
   }
 };

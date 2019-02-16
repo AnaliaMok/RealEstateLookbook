@@ -12,15 +12,16 @@ export const contentfulClientMixin = {
     });
   },
   methods: {
-    getEntries(contentType) {
-      this.client
+    getEntries: async function(contentType) {
+      let result = await this.client
         .getEntries({
           content_type: contentType
         })
         .then(function(entries) {
-          // self.lookbooks = entries.items;
-          console.log(entries);
+          return entries.items;
         });
+
+      return result;
     }
   }
 };
