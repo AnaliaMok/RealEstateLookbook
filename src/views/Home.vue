@@ -22,39 +22,23 @@
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue';
+import { contentfulClientMixin } from '../mixins/contentfulClientMixin.js';
 
 export default {
   name: 'home',
-  // components: {
-  //   HelloWorld
-  // },
+  mixins: [contentfulClientMixin],
   data: function() {
     return {
-      client: {},
       lookbooks: []
     };
   },
   created: function() {
-    const contentful = require('contentful');
-    this.client = contentful.createClient({
-      space: process.env.VUE_APP_CONTENTFUL_SPACE_ID,
-      accessToken: process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN
-    });
-    this.getLooksbooks(this);
+    this.getLooksbooks();
   },
-  mounted: function() {},
   methods: {
-    getLooksbooks(self) {
+    getLooksbooks() {
       // Retrieving entries
-      this.client
-        .getEntries({
-          content_type: 'lookbook'
-        })
-        .then(function(entries) {
-          self.lookbooks = entries.items;
-          console.log(self.lookbooks);
-        });
+      this.getEntries('lookbook');
     }
   }
 };
