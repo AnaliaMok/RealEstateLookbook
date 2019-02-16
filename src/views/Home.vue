@@ -5,7 +5,8 @@
       <p>Please note, none of these lookbooks describe real locations.</p>
     </div>
     <div class="home__lookbook-list">
-      <div
+      <router-link
+        :to="/lookbook/ + lb.fields.slug"
         class="home__lookbook-list__item"
         v-for="lb in lookbooks"
         :key="lb.sys.id"
@@ -15,7 +16,7 @@
           :alt="lb.fields.title"
         />
         <h3>{{ lb.fields.title }}</h3>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>

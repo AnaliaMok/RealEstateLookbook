@@ -22,6 +22,22 @@ export const contentfulClientMixin = {
         });
 
       return result;
+    },
+    getEntryBySlug: async function(contentType, slug) {
+      let result = await this.client
+        .getEntries({
+          content_type: contentType,
+          'fields.slug': slug
+        })
+        .then(function(entry) {
+          if (entry.items.length > 0) {
+            return entry.items[0];
+          }
+
+          return {};
+        });
+
+      return result;
     }
   }
 };
