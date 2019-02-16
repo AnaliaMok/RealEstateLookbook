@@ -38,6 +38,10 @@ export const contentfulClientMixin = {
         });
 
       return result;
+    },
+    getFile(fileObj) {
+      // Helper method to extract content type file
+      return fileObj.fields.file;
     }
   }
 };
