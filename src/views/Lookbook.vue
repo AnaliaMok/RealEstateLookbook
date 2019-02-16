@@ -1,7 +1,6 @@
 <template>
   <div class="lookbook">
-    <h2>This is a lookbook</h2>
-    <strong>{{ lookbook.fields.title }}</strong>
+    <h2 v-if="lookbook.fields">{{ lookbook.fields.title }}</h2>
   </div>
 </template>
 
