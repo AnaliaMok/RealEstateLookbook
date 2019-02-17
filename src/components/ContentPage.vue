@@ -1,5 +1,7 @@
 <template>
-  <section class="page"></section>
+  <section class="page">
+    <h1>{{ page.fields.pageTitle }}</h1>
+  </section>
 </template>
 
 <script>

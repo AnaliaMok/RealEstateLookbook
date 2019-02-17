@@ -4,25 +4,38 @@
     <CoverPage
       :page="lookbook.fields.coverPage"
       :authorName="lookbook.fields.authorName"
+      v-show="currentPage == -1"
     />
+    <ContentPage v-if="currentPage >= 0" :page="pages[currentPage]" />
+    <div class="lookbook__controls">
+      <button class="lookbook__controls__control" @click="goToPrevPage">
+        Previous Page
+      </button>
+      <button class="lookbook__controls__control" @click="goToNextPage">
+        Next Page
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
 import { contentfulClientMixin } from '@/mixins/contentfulClientMixin.js';
 import CoverPage from '@/components/CoverPage.vue';
+import ContentPage from '@/components/ContentPage.vue';
 
 export default {
   name: 'lookbook',
   mixins: [contentfulClientMixin],
   components: {
-    CoverPage
+    CoverPage,
+    ContentPage
   },
   data() {
     return {
       slug: '',
       lookbook: {},
-      pages: []
+      pages: [],
+      currentPage: -1
     };
   },
   watch: {
@@ -37,10 +50,17 @@ export default {
     updateComponent() {
       this.slug = this.$route.params.slug;
       this.getLookbook();
+      this.currentPage = -1;
     },
     getLookbook: async function() {
       this.lookbook = await this.getEntryBySlug('lookbook', this.slug);
       this.pages = this.lookbook.fields.pages;
+    },
+    goToPrevPage() {
+      console.log('Previous page');
+    },
+    goToNextPage() {
+      console.log('Next page');
     }
   }
 };
@@ -54,5 +74,11 @@ export default {
   max-height: 100vh;
   max-width: 100vw;
   overflow: hidden;
+
+  &__controls {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+  }
 }
 </style>
