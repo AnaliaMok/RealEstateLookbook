@@ -1,5 +1,10 @@
 <template>
-  <div>Image module</div>
+  <div class="image">
+    <img
+      :src="module.fields.image.fields.file.url"
+      :alt="module.fields.title"
+    />
+  </div>
 </template>
 
 <script>
