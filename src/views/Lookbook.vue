@@ -79,16 +79,15 @@ export default {
 <style lang="scss" scoped>
 .lookbook {
   position: relative;
-  height: 100vh;
-  width: 100vw;
-  max-height: 100vh;
-  max-width: 100vw;
-  overflow: hidden;
 
   &__controls {
     position: absolute;
-    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 1;
+    display: flex;
+    justify-content: center;
   }
 
   a {

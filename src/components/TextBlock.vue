@@ -33,9 +33,6 @@ export default {
       required: true
     }
   },
-  created() {
-    console.log('');
-  },
   computed: {
     bodyContent() {
       return documentToHtmlString(this.module.fields.bodyContent);
@@ -44,4 +41,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.text-block {
+  padding: 5rem; // TODO: Need to account for other layouts
+  overflow-y: auto;
+}
+</style>

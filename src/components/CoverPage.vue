@@ -105,9 +105,10 @@ export default {
 .cover {
   display: flex;
   align-items: center;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
+  height: 100vh;
+  width: 100vw;
+  max-height: 100vh;
+  max-width: 100vw;
 
   &__overlay {
     position: absolute;
