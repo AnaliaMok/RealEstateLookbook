@@ -21,7 +21,8 @@ export default {
   data() {
     return {
       slug: '',
-      lookbook: {}
+      lookbook: {},
+      pages: []
     };
   },
   watch: {
@@ -39,7 +40,7 @@ export default {
     },
     getLookbook: async function() {
       this.lookbook = await this.getEntryBySlug('lookbook', this.slug);
-      console.log(this.lookbook);
+      this.pages = this.lookbook.fields.pages;
     }
   }
 };
