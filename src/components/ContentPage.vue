@@ -12,7 +12,8 @@
       >
         <ImageBlock v-if="getContentTypeName(module) === 'imageModule'" />
         <TextBlock v-else-if="getContentTypeName(module) === 'textModule'" />
-        <!-- TODO: Handle nested rows -->
+        <!-- Formatting page object to follow this component's template rendering -->
+        <ContentPage v-else :page="{ fields: { rowModules: [module] } }" />
       </div>
     </div>
   </section>
