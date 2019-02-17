@@ -13,7 +13,11 @@
         <ImageBlock v-if="getContentTypeName(module) === 'imageModule'" />
         <TextBlock v-else-if="getContentTypeName(module) === 'textModule'" />
         <!-- Formatting page object to follow this component's template rendering -->
-        <ContentPage v-else :page="{ fields: { rowModules: [module] } }" />
+        <ContentPage
+          v-else
+          :isParent="false"
+          :page="{ fields: { rowModules: [module] } }"
+        />
       </div>
     </div>
   </section>
@@ -35,12 +39,16 @@ export default {
     page: {
       type: Object,
       required: true
+    },
+    isParent: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
     pageStyleObject() {
       return {
-        padding: this.page.fields.fullBleed ? 0 : '10rem'
+        padding: this.page.fields.fullBleed || !this.isParent ? 0 : '10rem'
       };
     }
   }
