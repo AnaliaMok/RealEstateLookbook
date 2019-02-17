@@ -1,6 +1,5 @@
 <template>
   <div class="lookbook" v-if="lookbook.fields">
-    <!-- TODO: Need to make currently displayed page reactive -->
     <CoverPage
       :page="lookbook.fields.coverPage"
       :authorName="lookbook.fields.authorName"
@@ -63,7 +62,6 @@ export default {
       } else {
         this.currentPage--;
       }
-      console.log('Previous page: ' + this.currentPage);
     },
     goToNextPage() {
       if (this.currentPage == this.pages.length - 1) {
@@ -72,7 +70,6 @@ export default {
       } else {
         this.currentPage++;
       }
-      console.log('Next page: ' + this.currentPage);
     }
   }
 };

@@ -26,6 +26,7 @@ export const contentfulClientMixin = {
     getEntryBySlug: async function(contentType, slug) {
       let result = await this.client
         .getEntries({
+          include: 10,
           content_type: contentType,
           'fields.slug': slug
         })

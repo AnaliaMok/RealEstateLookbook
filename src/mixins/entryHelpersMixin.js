@@ -1,4 +1,4 @@
-export const entryHelperMixin = {
+export const entryHelpersMixin = {
   methods: {
     getFile(fileObj) {
       // Extract content type file
