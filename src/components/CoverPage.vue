@@ -11,6 +11,11 @@
       </h1>
       <span>Written by {{ authorName }}</span>
     </div>
+    <div
+      class="cover__right-img"
+      v-show="this.page.fields.coverImagePositioning === 'Right Aligned'"
+      :style="rightImgStyleObject"
+    ></div>
   </section>
 </template>
 
@@ -77,6 +82,13 @@ export default {
         'justify-content': flexAlign,
         background: backgroundImg.length ? backgroundImg : 'none',
         color: backgroundImg.length ? '#F2F2F2' : '#333'
+      };
+    },
+    rightImgStyleObject() {
+      return {
+        background: `#FFFFFF url('https:${
+          this.page.fields.coverImage.fields.file.url
+        }') center / 100% no-repeat`
       };
     },
     headingClassObject() {
@@ -151,6 +163,11 @@ export default {
       letter-spacing: 0.01em;
       line-height: 2.3rem;
     }
+  }
+
+  &__right-img {
+    flex: 1 1 30%;
+    height: 100%;
   }
 }
 </style>
