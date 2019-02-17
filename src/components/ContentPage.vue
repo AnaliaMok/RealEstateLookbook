@@ -10,8 +10,14 @@
         v-for="module in row.fields.contentModules"
         :key="module.sys.id"
       >
-        <ImageBlock v-if="getContentTypeName(module) === 'imageModule'" />
-        <TextBlock v-else-if="getContentTypeName(module) === 'textModule'" />
+        <ImageBlock
+          v-if="getContentTypeName(module) === 'imageModule'"
+          :module="module"
+        />
+        <TextBlock
+          v-else-if="getContentTypeName(module) === 'textModule'"
+          :module="module"
+        />
         <!-- Formatting page object to follow this component's template rendering -->
         <ContentPage
           v-else

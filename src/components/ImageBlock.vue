@@ -4,7 +4,13 @@
 
 <script>
 export default {
-  name: 'ImageModule'
+  name: 'ImageModule',
+  props: {
+    module: {
+      type: Object,
+      required: true
+    }
+  }
 };
 </script>
 
