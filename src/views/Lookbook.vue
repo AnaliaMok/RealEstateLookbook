@@ -57,10 +57,22 @@ export default {
       this.pages = this.lookbook.fields.pages;
     },
     goToPrevPage() {
-      console.log('Previous page');
+      if (this.currentPage <= -1) {
+        // Loop back to last page
+        this.currentPage = this.pages.length - 1;
+      } else {
+        this.currentPage--;
+      }
+      console.log('Previous page: ' + this.currentPage);
     },
     goToNextPage() {
-      console.log('Next page');
+      if (this.currentPage == this.pages.length - 1) {
+        // Loop back to cover page
+        this.currentPage = -1;
+      } else {
+        this.currentPage++;
+      }
+      console.log('Next page: ' + this.currentPage);
     }
   }
 };
