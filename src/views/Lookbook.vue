@@ -10,6 +10,7 @@
       <button class="lookbook__controls__control" @click="goToPrevPage">
         Previous Page
       </button>
+      <router-link to="/">Back to Home</router-link>
       <button class="lookbook__controls__control" @click="goToNextPage">
         Next Page
       </button>
@@ -88,6 +89,10 @@ export default {
     position: absolute;
     bottom: 0;
     z-index: 1;
+  }
+
+  a {
+    color: $white; // TEMP
   }
 }
 </style>
