@@ -6,7 +6,9 @@
       v-show="coverStyleObject.background !== 'none'"
     ></div>
     <div class="cover__title" :style="titleStyleObject">
-      <h1 class="heading-one">{{ page.fields.title }}</h1>
+      <h1 class="heading-one" :class="headingClassObject">
+        {{ page.fields.title }}
+      </h1>
       <span>Written by {{ authorName }}</span>
     </div>
   </section>
@@ -76,6 +78,12 @@ export default {
         background: backgroundImg.length ? backgroundImg : 'none',
         color: backgroundImg.length ? '#F2F2F2' : '#333'
       };
+    },
+    headingClassObject() {
+      return {
+        'heading-one--center': this.titleStyleObject.textAlign === 'center',
+        'heading-one--right': this.titleStyleObject.textAlign === 'right'
+      };
     }
   }
 };
@@ -116,6 +124,22 @@ export default {
         width: 25%;
         height: 4px;
         background-color: $orange;
+      }
+
+      &.heading-one {
+        &--center {
+          padding-bottom: 0;
+          &:after {
+            position: static;
+            margin: 0.5rem auto 0;
+          }
+        }
+        &--right {
+          &:after {
+            right: 0;
+            left: auto;
+          }
+        }
       }
     }
 
