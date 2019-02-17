@@ -39,7 +39,7 @@ export default {
     };
   },
   watch: {
-    '$route.params.slug': function($slug) {
+    '$route.params.slug': function() {
       this.updateComponent();
     }
   },
@@ -92,7 +92,7 @@ export default {
   }
 
   a {
-    color: $white; // TEMP
+    color: $orange; // TEMP
   }
 }
 </style>
