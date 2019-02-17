@@ -109,6 +109,7 @@ export default {
 
   &__title {
     position: relative;
+    padding: 10rem;
     z-index: 1;
 
     h1 {
@@ -146,6 +147,9 @@ export default {
     span {
       text-transform: uppercase;
       font-weight: $medium;
+      font-family: $secondary-font;
+      letter-spacing: 0.01em;
+      line-height: 2.3rem;
     }
   }
 }
