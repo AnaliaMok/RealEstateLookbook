@@ -63,14 +63,12 @@ export default {
     font-weight: 500;
   }
 
-  &__content {
-    ul {
-      margin: 0;
-      padding: 0;
+  ul {
+    margin: 0;
+    padding: 0;
 
-      p {
-        margin: 0 0 0.5rem;
-      }
+    p {
+      margin: 0 0 0.5rem;
     }
   }
 }
