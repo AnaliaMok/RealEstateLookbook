@@ -127,5 +127,29 @@ export default {
       padding: 4rem;
     }
   }
+
+  &--with-gutter {
+    .page__row {
+      &:first-child {
+        margin-bottom: 3rem;
+      }
+      &:last-child {
+        margin-top: 3rem;
+      }
+
+      .page__row__cell {
+        &:first-child {
+          margin-right: 1.5rem;
+        }
+        &:last-child {
+          margin-left: 1.5rem;
+        }
+
+        .text-block {
+          padding: 0;
+        }
+      }
+    }
+  }
 }
 </style>

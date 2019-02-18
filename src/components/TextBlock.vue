@@ -53,7 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 .text-block {
-  padding: 5rem; // TODO: Need to account for other layouts
+  padding: 5rem;
   overflow-y: auto;
 
   &__subheading {
@@ -61,6 +61,17 @@ export default {
     font-size: 1.8rem;
     color: $slate;
     font-weight: 500;
+  }
+
+  &__content {
+    ul {
+      margin: 0;
+      padding: 0;
+
+      p {
+        margin: 0 0 0.5rem;
+      }
+    }
   }
 }
 </style>
