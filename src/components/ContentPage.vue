@@ -64,7 +64,7 @@ export default {
   computed: {
     pageStyleObject() {
       return {
-        padding: this.page.fields.fullBleed || !this.isParent ? 0 : '5rem'
+        padding: this.page.fields.fullBleed || !this.isParent ? 0 : '3rem'
       };
     },
     pageClassObject() {
@@ -84,8 +84,12 @@ export default {
 
 <style lang="scss" scoped>
 .page {
+  display: flex;
+  flex-flow: column wrap;
+  min-height: 100vh;
   &__row {
     display: flex;
+    flex: 1 1 50%;
 
     &__cell {
       position: relative;
@@ -97,6 +101,9 @@ export default {
       }
     }
   }
+
+  // Turn off on full bleed & full gutter
+  min-height: 100vh;
 
   &--full-height {
     .page {
@@ -115,19 +122,15 @@ export default {
             bottom: 0;
             left: 0;
           }
-          // .text-block {
-          //   position: absolute;
-          //   top: 0;
-          //   left: 0;
-          //   right: 0;
-          //   overflow-y: auto;
-          // }
         }
       }
     }
   }
 
   &--with-bleed {
+    .page__row {
+      flex: 1 1 50%;
+    }
     .text-block {
       padding: 4rem;
     }
@@ -136,10 +139,10 @@ export default {
   &--with-gutter {
     & > .page__row {
       &:first-child {
-        margin-bottom: 3rem;
+        margin-bottom: 1.5rem;
       }
       &:last-child {
-        margin-top: 3rem;
+        margin-top: 1.5rem;
       }
 
       .page__row__cell {

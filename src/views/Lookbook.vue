@@ -83,6 +83,7 @@ export default {
 <style lang="scss" scoped>
 .lookbook {
   position: relative;
+  min-height: 100vh;
 
   &__controls {
     position: absolute;

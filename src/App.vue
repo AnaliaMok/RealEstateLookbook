@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <!-- TODO: Implement dynamic router for "page flipping" -->
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>-->
     <router-view />
   </div>
 </template>
@@ -14,9 +9,11 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 #app {
   font-family: $primary-font;
   color: #2c3e50;
+  min-height: 100vh;
 }
 </style>
