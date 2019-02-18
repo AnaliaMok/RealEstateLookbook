@@ -2,8 +2,8 @@
   <section class="page" :class="pageClassObject" :style="pageStyleObject">
     <div
       class="page__row"
-      v-for="row in page.fields.rowModules"
-      :key="row.sys.id"
+      v-for="(row, index) in page.fields.rowModules"
+      :key="lookbookID + row.sys.id + index"
     >
       <div
         class="page__row__cell"
@@ -12,8 +12,8 @@
             getContentTypeName(module) === 'textModule' &&
             page.fields.rowModules.length == 1
         }"
-        v-for="module in row.fields.contentModules"
-        :key="module.sys.id"
+        v-for="(module, index) in row.fields.contentModules"
+        :key="lookbookID + module.sys.id + index"
       >
         <ImageBlock
           v-if="getContentTypeName(module) === 'imageModule'"
@@ -28,6 +28,7 @@
           v-else
           :isParent="false"
           :page="{ fields: { rowModules: [module] } }"
+          :lookbookID="lookbookID"
         />
       </div>
     </div>
@@ -54,6 +55,10 @@ export default {
     isParent: {
       type: Boolean,
       default: true
+    },
+    lookbookID: {
+      type: String,
+      required: true
     }
   },
   computed: {
@@ -129,7 +134,7 @@ export default {
   }
 
   &--with-gutter {
-    .page__row {
+    & > .page__row {
       &:first-child {
         margin-bottom: 3rem;
       }

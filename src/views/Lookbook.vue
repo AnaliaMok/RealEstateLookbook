@@ -5,7 +5,11 @@
       :authorName="lookbook.fields.authorName"
       v-show="currentPage == -1"
     />
-    <ContentPage v-if="currentPage >= 0" :page="pages[currentPage]" />
+    <ContentPage
+      v-if="currentPage >= 0"
+      :page="pages[currentPage]"
+      :lookbookID="lookbook.sys.id"
+    />
     <div class="lookbook__controls">
       <button class="lookbook__controls__control" @click="goToPrevPage">
         Previous Page
