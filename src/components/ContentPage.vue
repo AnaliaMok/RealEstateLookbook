@@ -38,7 +38,6 @@
 import { entryHelpersMixin } from '@/mixins/entryHelpersMixin.js';
 import ImageBlock from '@/components/ImageBlock.vue';
 import TextBlock from '@/components/TextBlock.vue';
-import { isPending } from 'q';
 
 export default {
   name: 'ContentPage',
@@ -82,7 +81,6 @@ export default {
       position: relative;
       flex: 1 1 50%;
       max-width: 50%;
-      height: 100%;
     }
   }
 
@@ -92,8 +90,7 @@ export default {
         position: relative;
         min-height: 100vh;
         &__cell {
-          min-height: 100vh;
-          height: 100%;
+          min-height: 100px;
           &--text {
             min-height: 100vh;
           }
