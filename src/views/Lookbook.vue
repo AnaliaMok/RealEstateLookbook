@@ -10,6 +10,7 @@
       :page="pages[currentPage]"
       :lookbookID="lookbook.sys.id"
     />
+    <!-- TODO: Account for Attributions Page -->
     <div class="lookbook__controls">
       <div class="lookbook__controls__container">
         <router-link to="/">
