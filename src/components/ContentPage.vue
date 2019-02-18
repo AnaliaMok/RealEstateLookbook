@@ -65,7 +65,12 @@ export default {
     pageClassObject() {
       return {
         'page--full-height':
-          this.page.fields.rowModules.length == 1 && this.isParent
+          this.page.fields.rowModules.length == 1 && this.isParent,
+        'page--with-bleed':
+          this.page.fields.fullBleed &&
+          this.isParent &&
+          this.page.fields.rowModules.length == 1,
+        'page--with-gutter': this.page.fields.showGutter && this.isParent
       };
     }
   }
@@ -81,6 +86,10 @@ export default {
       position: relative;
       flex: 1 1 50%;
       max-width: 50%;
+
+      .text-block {
+        padding-left: 1rem;
+      }
     }
   }
 
@@ -110,6 +119,12 @@ export default {
           // }
         }
       }
+    }
+  }
+
+  &--with-bleed {
+    .text-block {
+      padding: 4rem;
     }
   }
 }

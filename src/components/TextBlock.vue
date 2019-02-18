@@ -2,6 +2,7 @@
   <div class="text-block">
     <h1
       v-if="module.fields.showHeading"
+      class="heading-one"
       :class="{
         'text-block__heading--underline': module.fields.showHeadingUnderline
       }"
@@ -18,7 +19,7 @@
     >
       {{ module.fields.subheader }}
     </h3>
-    <div class="text-block__content" v-html="bodyContent"></div>
+    <div class="text-block__content body-text" v-html="bodyContent"></div>
   </div>
 </template>
 
@@ -36,6 +37,15 @@ export default {
   computed: {
     bodyContent() {
       return documentToHtmlString(this.module.fields.bodyContent);
+    },
+    headingStyleObject() {
+      const moduleTextAlign = this.module.fields.headingTextAlignment
+        .toLowerCase()
+        .trim();
+
+      return {
+        'text-align': moduleTextAlign
+      };
     }
   }
 };
@@ -45,5 +55,12 @@ export default {
 .text-block {
   padding: 5rem; // TODO: Need to account for other layouts
   overflow-y: auto;
+
+  &__subheading {
+    font-family: $primary-font;
+    font-size: 1.8rem;
+    color: $slate;
+    font-weight: 500;
+  }
 }
 </style>
