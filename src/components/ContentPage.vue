@@ -64,7 +64,7 @@ export default {
   computed: {
     pageStyleObject() {
       return {
-        padding: this.page.fields.fullBleed || !this.isParent ? 0 : '3rem'
+        padding: this.page.fields.fullBleed || !this.isParent ? 0 : '4rem'
       };
     },
     pageClassObject() {
@@ -75,7 +75,8 @@ export default {
           this.page.fields.fullBleed &&
           this.isParent &&
           this.page.fields.rowModules.length == 1,
-        'page--with-gutter': this.page.fields.showGutter && this.isParent
+        'page--with-gutter': this.page.fields.showGutter && this.isParent,
+        'page--gallery': this.page.fields.rowModules.length > 1 && this.isParent // Full page with 4 cells
       };
     }
   }
@@ -107,6 +108,11 @@ export default {
 
   // Turn off on full bleed & full gutter
   min-height: 100vh;
+
+  &--gallery {
+    max-height: 100vh;
+    flex-flow: column nowrap;
+  }
 
   &--full-height {
     .page {
