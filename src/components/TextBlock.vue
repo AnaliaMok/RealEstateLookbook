@@ -2,10 +2,11 @@
   <div class="text-block">
     <h1
       v-if="module.fields.showHeading"
-      class="heading-one"
+      class="heading-one text-block__heading"
       :class="{
         'text-block__heading--underline': module.fields.showHeadingUnderline
       }"
+      :style="headingStyleObject"
     >
       {{ module.fields.header }}
     </h1>
@@ -19,7 +20,11 @@
     >
       {{ module.fields.subheader }}
     </h3>
-    <div class="text-block__content body-text" v-html="bodyContent"></div>
+    <div
+      class="text-block__content body-text"
+      v-html="bodyContent"
+      :style="headingStyleObject"
+    ></div>
   </div>
 </template>
 
@@ -56,11 +61,19 @@ export default {
   padding: 5rem;
   overflow-y: auto;
 
+  &__heading {
+    color: $black;
+  }
+
   &__subheading {
     font-family: $primary-font;
     font-size: 1.8rem;
     color: $slate;
     font-weight: 500;
+  }
+
+  &__content {
+    color: $dark-grey;
   }
 
   ul {
