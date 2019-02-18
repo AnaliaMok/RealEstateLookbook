@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="home__header">
+      <img src="../assets/mansion.png" alt="Mansion Illustration" />
       <h1>Real Estate Lookbooks</h1>
       <p>Please note, none of these lookbooks describe real locations.</p>
     </div>
@@ -55,6 +56,12 @@ export default {
     p {
       font-weight: $medium;
     }
+
+    img {
+      display: block;
+      max-width: 10%;
+      margin: 0 auto;
+    }
   }
 
   &__lookbook-list {
@@ -66,10 +73,25 @@ export default {
       flex: 1 1 33.33%;
       max-width: 33.33%;
       margin: 0 1rem 1rem;
+      color: $black;
+      text-align: center;
+      background-color: $white;
+      box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.16);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: all 0.3s;
+
+      &:hover {
+        box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.5);
+      }
 
       img {
         width: 100%;
         height: auto;
+      }
+
+      h3 {
+        padding: 0.75rem 1rem 1rem;
       }
     }
   }
