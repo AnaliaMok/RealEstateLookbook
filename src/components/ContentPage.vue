@@ -87,6 +87,9 @@ export default {
   display: flex;
   flex-flow: column wrap;
   min-height: 100vh;
+  .page {
+    min-height: auto;
+  }
   &__row {
     display: flex;
     flex: 1 1 50%;
@@ -128,9 +131,6 @@ export default {
   }
 
   &--with-bleed {
-    .page__row {
-      flex: 1 1 50%;
-    }
     .text-block {
       padding: 4rem;
     }
@@ -138,6 +138,7 @@ export default {
 
   &--with-gutter {
     & > .page__row {
+      max-height: 50%;
       &:first-child {
         margin-bottom: 1.5rem;
       }
