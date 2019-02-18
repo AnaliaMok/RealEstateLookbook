@@ -124,6 +124,7 @@ export default {
     position: relative;
     padding: 10rem;
     z-index: 1;
+    flex: 1;
 
     h1 {
       position: relative;
@@ -168,6 +169,7 @@ export default {
 
   &__right-img {
     flex: 1 1 30%;
+    max-width: 50%;
     height: 100%;
   }
 }
