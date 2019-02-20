@@ -1,4 +1,6 @@
-# real-estate-lookbook
+# Real Estate Lookbook
+
+Preview Site: https://real-estate-lookbook.netlify.com/
 
 ## Project setup
 
