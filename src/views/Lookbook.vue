@@ -6,11 +6,15 @@
       v-show="currentPage == -1"
     />
     <ContentPage
-      v-if="currentPage >= 0"
+      v-if="currentPage >= 0 && currentPage <= this.pages.length - 1"
       :page="pages[currentPage]"
       :lookbookID="lookbook.sys.id"
     />
-    <!-- TODO: Account for Attributions Page -->
+    <!-- Attributions Page -->
+    <AttributionsPage
+      v-else-if="currentPage === this.pages.length"
+      :page="lookbook.fields.attributionsPage"
+    />
     <div class="lookbook__controls">
       <div class="lookbook__controls__container">
         <router-link to="/">
@@ -51,13 +55,15 @@
 import { contentfulClientMixin } from '@/mixins/contentfulClientMixin.js';
 import CoverPage from '@/components/CoverPage.vue';
 import ContentPage from '@/components/ContentPage.vue';
+import AttributionsPage from '@/components/AttributionsPage.vue';
 
 export default {
   name: 'lookbook',
   mixins: [contentfulClientMixin],
   components: {
     CoverPage,
-    ContentPage
+    ContentPage,
+    AttributionsPage
   },
   data() {
     return {
@@ -88,14 +94,14 @@ export default {
     goToPrevPage() {
       if (this.currentPage <= -1) {
         // Loop back to last page
-        this.currentPage = this.pages.length - 1;
+        this.currentPage = this.pages.length;
       } else {
         this.currentPage--;
       }
     },
     goToNextPage() {
-      if (this.currentPage == this.pages.length - 1) {
-        // Loop back to cover page
+      if (this.currentPage == this.pages.length) {
+        // Loop back to cover page. Will continue past length to account for attributions page
         this.currentPage = -1;
       } else {
         this.currentPage++;

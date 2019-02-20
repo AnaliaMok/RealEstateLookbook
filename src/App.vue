@@ -16,4 +16,8 @@ body {
   color: #2c3e50;
   min-height: 100vh;
 }
+
+a {
+  color: $orange;
+}
 </style>
