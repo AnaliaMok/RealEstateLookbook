@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/09ae0f63-5751-4e53-9284-72cffce6da2f/deploy-status)](https://app.netlify.com/sites/real-estate-lookbook/deploys)
+
 # Real Estate Lookbook
 
 Preview Site: https://real-estate-lookbook.netlify.com/
